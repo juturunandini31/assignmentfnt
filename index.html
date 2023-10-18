@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Online Shopping DashBoard</title>
+  <!-- Add links to Chart.js for chart rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .chart-container {
+      width: 45%;
+      padding: 20px;
+    }
+    .card {
+      width: 30%;
+      margin: 10px;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px #888888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#" class="logo">
+          <img src="/logo.jpg" alt="">
+          <span class="nav-item">DashBoard</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-product"></i>
+          <span class="nav-item">Product</span>
+        </a></li>
+        <li><a href="">
+          <i class="fas fa-user"></i>
+          <span class="nav-item">Customers</span>
+        </a></li>
+        <li><a href="">
+          <i class="fas fa-wallet"></i>
+          <span class="nav-item">Income</span>
+        </a></li>
+        <li><a href="">
+          <i class="fas fa-chart-bar"></i>
+          <span class="nav-item">Promote</span>
+        </a></li>
+        <li><a href="">
+          <i class="fas fa-tasks"></i>
+          <span class="nav-item">Help</span>
+        </a></li>
+        <li><a href="">
+          <i class="fas fa-cog"></i>
+          <span class="nav-item"></span>
+        </class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav>
+  <h1>Online Shopping Dashboard</h1>
+
+  <div class="container">
+    <!-- Bar Graph -->
+    <div class="chart-container">
+      <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- Ring Graph -->
+    <div class="chart-container">
+      <canvas id="ringChart"></canvas>
+    </div>
+
+    <!-- Display Cards -->
+    <div class="card">
+      <h2>Total Sales</h2>
+      <p>$1,234,567</p>
+    </div>
+
+    <div class="card">
+      <h2>Number of Orders</h2>
+      <p>789</p>
+    </div>
+
+    <div class="card">
+      <h2>Product Categories</h2>
+      <ul>
+        <li>Electronics: 30%</li>
+        <li>Clothing: 20%</li>
+        <li>Books: 15%</li>
+        <li>Home & Garden: 10%</li>
+        <li>Others: 25%</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Sample data for the bar graph
+    var barChartData = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Sales',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+        data: [25000, 34000, 42000, 31000, 28000, 37000],
+      }]
+    };
+
+    // Sample data for the ring graph
+    var ringChartData = {
+      labels: ['Electronics', 'Clothing', 'Books', 'Home & Garden', 'Others'],
+      datasets: [{
+        data: [30, 20, 15, 10, 25],
+        backgroundColor: ['red', 'green', 'blue', 'orange', 'purple'],
+      }]
+    };
+
+    // Create bar graph
+    var ctx1 = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(ctx1, {
+      type: 'bar',
+      data: barChartData,
+    });
+
+    // Create ring graph
+    var ctx2 = document.getElementById('ringChart').getContext('2d');
+    var ringChart = new Chart(ctx2, {
+      type: 'doughnut',
+      data: ringChartData,
+    });
+  </script>
+</body>
+</html>
